@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-app="column-sieve">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'none'; base-uri 'none'; form-action 'none'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self'; connect-src 'none'; base-uri 'none'; form-action 'none'; object-src 'none'">
 <title>Clean email lists from CSV | Column Sieve</title>
 <meta name="description" content="Select the email column, deduplicate addresses, and download cleaned CSV with a report of skipped rows.">
 <link rel="canonical" href="https://musabukhari237.github.io/column-sieve/">
@@ -17,18 +17,22 @@
 <link rel="icon" href="logo.svg" type="image/svg+xml">
 <link rel="stylesheet" href="app.css">
 <script src="app.mjs" type="module"></script>
+  <script type="module" src="experience.mjs"></script>
+  <script type="module" src="experience.mjs"></script>
 </head>
 <body>
-<header><a class="brand" href="./"><img src="logo.svg" alt="">Column Sieve</a><a class="repo" href="https://github.com/MusaBukhari237/column-sieve">Source on GitHub</a></header>
+<a class="skip" href="#workspace">Skip to workspace</a>
+<header><a class="brand" href="./"><img src="logo.svg" alt="">Column Sieve</a><nav aria-label="Main"><a href="#guide">How to use</a><a class="repo" href="https://github.com/MusaBukhari237/column-sieve">GitHub ↗</a></nav></header>
 <main>
-<section class="hero"><h1>Clean email lists from CSV</h1><p>Select the email column, deduplicate addresses, and download cleaned CSV with a report of skipped rows.</p></section>
-<div class="workspace">
-<section class="panel input" aria-labelledby="settings"><h2 id="settings">Settings</h2>
+<section class="masthead"><div class="intro"><p class="category">CSV cleanup</p><h1>A clean list starts here.</h1><p class="description">Find your email column, remove duplicate addresses, and keep a clear record of skipped rows.</p></div><figure class="scene diagram"><img src="scene.svg" alt="CSV cleanup process illustration" width="440" height="260"></figure></section>
+<div class="workspace" id="workspace">
+<section class="panel input" aria-labelledby="settings"><h2 id="settings">Source & email column</h2>
 <div class="fields"><label class="wide">CSV with a header row<textarea id="csv" placeholder="Name,Email" maxlength="250000" spellcheck="false" rows="6"></textarea></label><label>Email column<select id="column"></select></label></div><div class="actions"><button type="button" id="run">Clean CSV</button><button type="button" class="quiet" id="example">Load example</button></div><p class="note">Paste comma-separated data. Quoted commas, quotes, and line breaks are supported.</p>
 </section>
-<section class="panel output" aria-labelledby="output"><h2 id="output">Result</h2><div class="result" id="result" aria-live="polite">Load the example or enter your own input.</div></section>
+<section class="panel output" aria-labelledby="output" id="output-panel"><h2 id="output" tabindex="-1">Cleaned list</h2><p class="result-status" id="result-status" aria-live="polite">Ready when you are</p><div class="result" id="result" aria-live="polite">Load the example or enter your own input.</div></section>
 </div>
+<details class="guide" id="guide"><summary>How to use Column Sieve</summary><ol><li>Paste a CSV with a header row.</li><li>Choose the email column and clean the list.</li><li>Download accepted addresses and review the skipped rows.</li></ol></details>
 </main>
-<footer>Open-source browser tool · <a href="https://github.com/MusaBukhari237/column-sieve/blob/HEAD/LICENSE">MIT license</a></footer>
+<footer><span>Column Sieve · <a href="https://github.com/MusaBukhari237/column-sieve/blob/main/LICENSE">MIT licensed</a></span><span class="credits"><a href="https://www.leadceleris.com/">LeadCeleris</a><a href="https://www.aifficiento.biz/">AIFFICIENTO</a></span></footer>
 </body>
 </html>
